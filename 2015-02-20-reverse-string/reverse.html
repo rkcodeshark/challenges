@@ -1,0 +1,21 @@
+<html>
+    <head> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> </head>
+    <body>
+        <div id="input"> Input : <input type="text" id="input" onblur="reverseThis(this)"> </div>
+        <div id="output">Output : </div>
+    </body>
+<script>
+
+    function reverseThis(field){
+        jQuery('#output').text('Output: ' + reverse(field.value));
+    }
+    //Begin code shark Function
+    function reverse(input){
+        var output = '';
+        for(var pos = input.length-1; pos>=0; pos--){ output += input[pos]; }
+        return output;
+    }
+    //End code shark function
+
+</script>
+</html>

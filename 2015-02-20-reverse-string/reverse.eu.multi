@@ -1,0 +1,49 @@
+//ORACLE PL/SQL
+
+FUNCTION return_word(word IN VARCHAR2) return VARCHAR
+
+  reversed_string VARCHAR2 := ‘’;
+
+BEGIN
+  select reverse(word)
+  into reversed_string
+  from dual;
+  
+  RETURN reversed_word;
+
+Exception
+when others
+then
+	DBMS_OUTPUT.PUTLINE(‘Errrrrrm, theres a error!’);
+END;
+
+
+//JAVA
+
+public class CodeShark1{
+     public static void main(String args[]) {
+       StringBuffer reversed_word = new StringBuffer("Code Shark");
+       reversed_word.reverse();
+       System.out.println(reversed_word);
+   } 
+}
+
+//JAVASCRIPT
+
+<!DOCTYPE html>
+<html>
+<title>Code Shark 1</title>
+<script>function word_reverse (string_in) {
+  var reversed_word = '';
+  for (var n = string_in.length - 1; n >= 0; n--) reversed_word += string_in[n];
+  return reversed_word;
+}</script>
+<head>
+</head>
+<body>
+  <script language="Javascript" type="text/javascript">
+      document.write("reversed word is: " + word_reverse("Code Shark"));
+  </script>
+</body>
+</html>
+
