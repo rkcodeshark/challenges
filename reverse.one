@@ -1,0 +1,36 @@
+
+Apex
+
+global static String reverse(String str) {
+    return str.reverse();
+}
+
+JavaScript
+
+function reverse(value) {
+    return String(value).split('').reverse().join('');
+}
+
+Java
+
+public static String reverse(String str) {
+    return new StringBuilder(str).reverse().toString();
+}
+
+SQL
+
+select reverse(str) from dual;
+
+C#
+
+public static string reverse(string str) {
+    char[] charArray = str.ToCharArray();
+    Array.Reverse(charArray);
+    return new String(charArray);
+}
+
+Python
+
+def reverse(value):
+    return str(value)[::-1]
+
