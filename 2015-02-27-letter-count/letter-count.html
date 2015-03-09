@@ -1,0 +1,60 @@
+<html>
+    <head> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> </head>
+    <body>
+        <div> Input : <input type="text" style="width:450px;" id="input" onblur="countThis();"> </div>
+        <div id="output">Output : </div>
+        <div><button type="button" onclick="countThis()">Go</button> </div>
+    </body>
+<script>
+
+    function countThis(){
+        jQuery('#output').text('Output: ' + count(jQuery('#input').val()));
+    }
+    //Begin code shark Function
+    function count(input){
+        if(jQuery.type( input )!=="string"){ input = new String(input); }
+
+        inputList = input.split(' ');
+        var wordCount = { word:'', count:0};
+        var alpha = 'abcdefghijklmnopqrstuvwxyz'
+
+        for(var i=0; i<inputList.length; i++){
+            var word = inputList[i].toLowerCase();
+            for(var j=0; j<word.length; j++){
+                if(alpha.indexOf(word[j])!=-1){
+                    var start = word.length;
+                    word = word.replace( new RegExp(word[j],"g") ,'');
+                    var numChars = start - word.length;
+                    if(numChars>wordCount.count){
+                        wordCount.count = numChars;
+                        wordCount.word = inputList[i];
+                    }
+                    j--;
+                }
+            }
+        }
+
+        if(wordCount.count>1){
+            return wordCount.word;
+        }
+        return null;
+        
+    }
+    //End code shark function
+
+    /*  Could use this if there were more symbols/numbers than letters
+    for(var j=0; j<alpha.length; j++){
+        var matchCount = inputList[i].match( new RegExp(alpha[j],"g") );
+        if(matchCount!=null){
+            var letterCount = matchCount.length; 
+            if((letterCount>wordCount.count) || (letterCount==wordCount.count && wordCount.pos>i)){
+                wordCount.count = letterCount;
+                wordCount.word = inputList[i];
+                wordCount.pos = i;
+            }
+        }
+    }*/
+
+
+</script>
+</html>
